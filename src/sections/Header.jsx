@@ -58,7 +58,28 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className='navbar'></div>
+        <div className='navbar-row'>
+          <div className='logo-cont'>
+            Bitnine
+            <select className='lan-btn'>
+              <option>Select Language</option>
+              <option>English</option>
+              <option>한국어</option>
+            </select>
+          </div>
+          <div className='menu'>
+            <ul>
+              <li>Products</li>
+              <li>Use Cases</li>
+              <li>Services</li>
+              <li>Resources</li>
+              <li>Blog</li>
+              <li>Company</li>
+              <li>Ir</li>
+            </ul>
+            <button>Try Free</button>
+          </div>
+        </div>
       </div>
     </div>
   );
