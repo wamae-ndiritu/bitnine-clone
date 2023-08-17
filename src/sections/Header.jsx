@@ -60,7 +60,7 @@ const Header = () => {
         </div>
         <div className='navbar-row'>
           <div className='logo-cont'>
-            Bitnine
+            <img src='/assets/bitnine-logo_.png' alt='logo' />
             <select className='lan-btn'>
               <option>Select Language</option>
               <option>English</option>
