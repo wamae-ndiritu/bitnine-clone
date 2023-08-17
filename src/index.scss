@@ -1,3 +1,5 @@
+$color-orange: #e4c41c;
+
 *{
   padding: 0;
   margin: 0;
@@ -11,4 +13,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+
+// Header Section
+
+.cont{
+  .top-header{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-image: url("../public/assets/bitnine-banner.png");
+
+    h6{
+      font-size: 18px;
+      letter-spacing: .7px;
+      font-weight: 400;
+      transition: 0.4s ease-in;
+
+      span{
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      &:hover{
+        color: $color-orange;
+      }
+      
+    }
+  }
 }
