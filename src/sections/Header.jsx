@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
+  };
+
+  const toggleMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
   };
 
   useEffect(() => {
@@ -16,8 +21,17 @@ const Header = () => {
     }
   }, [showSearch]);
 
+  useEffect(() => {
+    const menu = document.getElementById("menu");
+    if (showMobileMenu) {
+      menu.classList.add("show-menu");
+    } else {
+      menu.classList.remove("show-menu");
+    }
+  }, [showMobileMenu]);
+
   return (
-    <div className='cont'>
+    <div className='header-cont'>
       <div className='top-header'>
         <h6>
           <span>AG Cloud Express :</span>
@@ -66,8 +80,11 @@ const Header = () => {
               <option>English</option>
               <option>한국어</option>
             </select>
+            <span className='menu-bar' onClick={toggleMenu}>
+              <i className='fa fa-bars' aria-hidden='true'></i>
+            </span>
           </div>
-          <div className='menu'>
+          <div className='menu' id='menu'>
             <ul>
               <li>Products</li>
               <li>Use Cases</li>
