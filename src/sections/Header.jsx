@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = () => {
+  const [showSearch, setShowSearch] = useState(false);
+
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+  };
+
+  useEffect(() => {
+    const searchInput = document.getElementById("search");
+    if (showSearch) {
+      searchInput.classList.add("search-active");
+    } else {
+      searchInput.classList.remove("search-active");
+    }
+  }, [showSearch]);
+
   return (
     <div className='cont'>
       <div className='top-header'>
@@ -14,8 +29,13 @@ const Header = () => {
           <div className='right'>
             <div className='info'>
               <div className='search'>
-                <i className='fa fa-search' aria-hidden='true'></i>
-                <i className='fa fa-times d-none' aria-hidden='true'></i>
+                <input type='text' placeholder='SEARCH' id='search' />
+                <span onClick={toggleSearch}>
+                  <i
+                    className={`fa ${showSearch ? "fa-times" : "fa-search"}`}
+                    aria-hidden='true'
+                  ></i>
+                </span>
               </div>
               <h6>Contact</h6>
             </div>

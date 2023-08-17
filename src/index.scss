@@ -54,6 +54,7 @@ body {
     .social-row{
       height: 45px;
       padding: 0 10px;
+      position: relative;
 
       .right{
         height: 100%;
@@ -68,8 +69,40 @@ body {
 
           .search{
             margin-right: 20px;
-          }
 
+            input{
+              width: 0;
+              background-color: inherit;
+              color: #fff;
+              font-size: 14px;
+              font-weight: normal;
+              border: none;
+              margin-right: 10px;
+              transition: width 0.3s ease;
+
+              &:focus{
+                outline: none;
+              }
+            }
+
+            .search-active{
+              width: 150px;
+            }
+
+            span{
+              cursor: pointer;
+              font-size: 18px;
+              transition: transform 0.5s ease;
+
+              .fa-times{
+                color: gray;
+              }
+
+              &:hover{
+                color: gray;
+              }
+            }
+          }
 
           h6{
             margin: auto 0;
@@ -77,6 +110,14 @@ body {
             text-transform: uppercase;
             font-size: 16px;
             font-weight: 300;
+            transition: 0.3s ease-out;
+            cursor: pointer;
+
+            &:hover{
+              width: 70px;
+              padding: 5px 0;
+              color: gray;
+            }
           }
         }
 
