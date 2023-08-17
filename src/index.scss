@@ -27,6 +27,7 @@ body {
     justify-content: center;
     color: #fff;
     background-image: url("../public/assets/bitnine-banner.png");
+    z-index: 9;
 
     h6{
       font-size: 18px;
@@ -43,6 +44,85 @@ body {
         color: $color-orange;
       }
       
+    }
+  }
+  
+  .main-header{
+    background-color: #000000;
+    color: #ffffff;
+    
+    .social-row{
+      height: 45px;
+      padding: 0 10px;
+
+      .right{
+        height: 100%;
+        float: right;
+        display: flex;
+        align-items: center;
+
+        .info{
+          display: flex;
+          height: 100%;
+          align-items: center;
+
+          .search{
+            margin-right: 20px;
+          }
+
+
+          h6{
+            margin: auto 0;
+            margin-right: 70px;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 300;
+          }
+        }
+
+        .icons{
+          display: flex;
+
+          span {
+           font-size: 18px;
+           display: inline-block;
+           padding: 5px 10px;
+           text-align: center;
+           color: #fff;
+           background: transparent; /* default color */
+           /* "to top" - affects initial color */
+           background: linear-gradient(to top, transparent 50%, darkblue 50%) bottom;
+           background-size: 100% 200%;
+           /* Adjust the background size for top-to-bottom effect */
+           transition: background-position 0.3s ease-out;
+           cursor: pointer;
+
+          &:first-child {
+              /* Apply different background to odd child spans */
+              color: $color-orange;
+              background: linear-gradient(to top, transparent 50%, darkgray 50%) bottom;
+              background-size: 100% 200%;
+            }
+
+            &:last-child {
+                /* Apply different background to odd child spans */
+                background: linear-gradient(to top, transparent 50%, palegreen 50%) bottom;
+                background-size: 100% 200%;
+              }
+            
+              &:nth-child(2) {
+                /* Apply different background to even child spans */
+                background: linear-gradient(to top, transparent 50%, red 50%) bottom;
+                background-size: 100% 200%;
+              }
+
+           &:hover{
+             background-position: top;
+           }
+            
+          } 
+        }
+      }
     }
   }
 }
