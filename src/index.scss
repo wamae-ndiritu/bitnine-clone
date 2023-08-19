@@ -227,6 +227,12 @@ body {
             height: 25px;
             margin: auto 0;
 
+            i{
+              font-size: 20px;
+              margin: auto 0;
+              float: right;
+            }
+
             &:hover{
               color: $color-orange;
             }
@@ -248,6 +254,12 @@ body {
             margin: 0;
             position: absolute;
             top: 50px;
+
+            i{
+              font-size: 20px;
+              margin: auto 0;
+              float: right;
+            }
 
             li{
               font-size: 14px;
@@ -324,6 +336,7 @@ body {
   }
 
   .navbar-row{
+    width: 100% !important;
     height: 70px !important;
     justify-content: unset !important;
     flex-direction: column;
@@ -334,6 +347,7 @@ body {
       height: 70px;
       width: 100%;
       padding: 10px;
+      border-bottom: 0.5px solid gray;
 
       img{
         margin: 10px;
@@ -365,35 +379,50 @@ body {
     }
 
     .menu{
-      width: 100%;
+      width: 100% !important;
       position: absolute;
       top: 70px;
-      // height: auto;
       overflow: hidden;
       background-color: #000000;
       transition: height 0.3s ease-out;
 
       ul{
+        width: 100% !important;
         display: inline-block !important;
-        padding: 0;
+        padding: 0 10px !important;
         
         li{
           padding: 0 10px !important;
           margin: 0 !important;
-          color: gray;
+          font-size: 16px !important;
+          color: #ffffff;
           height: 25px;
+
+          i{
+            font-size: 30px !important;
+          }
 
           .hide-dummy{
             display: none;
           }
 
           .sub-menu{
-            display: none !important;
+            position: unset !important;
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            background-color: #000000 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+
+            li{
+              font-size: 14px !important;
+              margin: 5px 0 !important;
+            }
           }
 
-          &:first-child{
-            width: 100%;
-            border-top: 0.5px solid gray;
+          .sub-menu-2{
+            display: none !important;
           }
 
           &:last-child{

@@ -94,7 +94,12 @@ const Header = () => {
                 const { id, title } = link;
                 return (
                   <li key={id}>
-                    <p>{title}</p>
+                    <p>
+                      {title}
+                      {link.items && (
+                        <i className='fa fa-angle-down' aria-hidden='true'></i>
+                      )}
+                    </p>
                     <div className='hide-dummy'>Dummy</div>
                     {link.items && (
                       <ul className='sub-menu'>
@@ -103,13 +108,21 @@ const Header = () => {
                             <li key={item.id}>
                               {item.title}
                               {item.subItems && (
-                                <ul className='sub-menu-2'>
-                                  {item.subItems.map((subItem) => {
-                                    return (
-                                      <li key={subItem.id}>{subItem.title}</li>
-                                    );
-                                  })}
-                                </ul>
+                                <>
+                                  <i
+                                    className='fa fa-angle-right'
+                                    aria-hidden='true'
+                                  ></i>
+                                  <ul className='sub-menu-2'>
+                                    {item.subItems.map((subItem) => {
+                                      return (
+                                        <li key={subItem.id}>
+                                          {subItem.title}
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </>
                               )}
                             </li>
                           );
