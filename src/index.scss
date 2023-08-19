@@ -1,5 +1,6 @@
 $color-orange: #e4c41c;
 $color-gray: #746c6c;
+$bg-color: #e3ebeca9;
 $transition-main: 0.3s ease-out;
 
 *{
@@ -10,14 +11,19 @@ $transition-main: 0.3s ease-out;
 
 body {
   margin: 0;
-  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  //   sans-serif;
   font-family: Monda,
     'Noto Sans KR',
     sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.card{
+  padding: 5px !important;
+}
+
+.container{
+  width: 70% !important;
 }
 
 
@@ -542,7 +548,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e3ebeca9;
+  background-color: $bg-color;
   margin-top: -100px;
 
   .package-wrapper{
@@ -599,7 +605,6 @@ body {
     img{
       width: 100%;
       height: 400px;
-      // object-fit: contain;
     }
   }
 }
@@ -624,4 +629,97 @@ body {
     }
   }
 }
+}
+
+// AgensSQLDBEngine Section
+.engine-cont{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $bg-color;
+  padding: 50px 0;
+
+  h1 {
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+
+  h6{
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 22px;
+    color: $color-gray;
+  }
+  
+  p {
+    color: $color-gray;
+    padding: 0;
+    font-size: 16px;
+    margin: 30px 0;
+    max-width: 350px;
+    text-align: center;
+    }
+
+  .engine-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e9dfdf;
+    border-radius: 10px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+
+    .image-cont{
+      width: 60%;
+      height: 150px;
+
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    ul{
+      position: absolute;
+      background-color: #fff;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      display: none;
+      
+      li{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 599px){
+  .container{
+    width: 100% !important;
+  }
+
+  .engine-cont{
+    h1{
+      font-size: 24px !important;
+      margin-bottom: 20px !important;
+    }
+
+    h6{
+      font-size: 18px !important;
+    }
+
+    .engine-card{
+      margin-bottom: 10px;
+    }
+  }
 }
