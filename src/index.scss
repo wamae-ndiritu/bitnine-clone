@@ -667,6 +667,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: transform 0.5s ease-out, border-color 0.6s ease-out;
     border: 1px solid #e9dfdf;
     border-radius: 10px;
     height: 200px;
@@ -705,6 +706,10 @@ body {
 
     &:hover ul{
       transform: scale(1);
+    }
+
+    &:hover{
+      border-color:#9999e1;
     }
 
   }
