@@ -256,7 +256,6 @@ body {
       font-size: 10px !important;
       text-align: center !important;
       font-weight: 100 !important;
-      background-color: red !important;
     }
 
   }
@@ -290,9 +289,10 @@ body {
       }
 
       .menu-bar{
-        display: block;
+        display: inline-flex !important;
         cursor: pointer;
         margin: auto 0 !important;
+        float: right;
 
         i{
           color: #fff;
