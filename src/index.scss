@@ -683,23 +683,30 @@ body {
       }
     }
 
-    ul{
-      position: absolute;
-      background-color: #fff;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      display: none;
+      ul {
+        position: absolute;
+        background-color: #fff;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform: scale(0);
+        transition: transform 0.7s;
       
-      li{
-        font-size: 14px;
+        li {
+          font-size: 14px;
+        }
       }
+
+
+    &:hover ul{
+      transform: scale(1);
     }
+
   }
 }
 

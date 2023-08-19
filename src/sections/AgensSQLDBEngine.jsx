@@ -28,15 +28,17 @@ const AgensSQLDBEngine = () => {
               <div className='image-cont'>
                 <img src='/assets/Data-Redaction.png' alt='...' />
               </div>
-              <ul>
-                <li>enhanced data security of user personal information</li>
-                <li>
-                  resolve privacy issues in preparation for security audits
-                </li>
-                <li>
-                  encryption or masking with unidentifiable special characters
-                </li>
-              </ul>
+              <div className='details'>
+                <ul>
+                  <li>enhanced data security of user personal information</li>
+                  <li>
+                    resolve privacy issues in preparation for security audits
+                  </li>
+                  <li>
+                    encryption or masking with unidentifiable special characters
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className='col-lg-4 col-md-4'>
@@ -50,7 +52,7 @@ const AgensSQLDBEngine = () => {
                   traces object accessed or DDL & DML statements executed by a
                   user
                 </li>
-                <li>ecords all actions in logs</li>
+                <li>records all actions in logs</li>
               </ul>
             </div>
           </div>
