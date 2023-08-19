@@ -26,11 +26,11 @@ export const navLinks = [
                 ]
             },
             {
-                id: 0,
+                id: 1,
                 title: "Relational Database",
                 subItems: [
                     {
-                        id: 0,
+                        id: 1,
                         title: "AgensSQL"
                     }
                 ]

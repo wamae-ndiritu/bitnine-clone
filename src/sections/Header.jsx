@@ -7,9 +7,14 @@ const Header = () => {
 
   const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showSubMenu, setShowSubmenu] = useState(false);
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
+  };
+
+  const viewSubMenu = () => {
+    setShowSubmenu(!showSubMenu);
   };
 
   const toggleMenu = () => {
@@ -94,14 +99,17 @@ const Header = () => {
                 const { id, title } = link;
                 return (
                   <li key={id}>
-                    <p>
+                    <p
+                      onClick={viewSubMenu}
+                      className={`${link.items && "sub-menu-cont"}`}
+                    >
                       {title}
                       {link.items && (
                         <i className='fa fa-angle-down' aria-hidden='true'></i>
                       )}
                     </p>
                     <div className='hide-dummy'>Dummy</div>
-                    {link.items && (
+                    {showSubMenu && link.items && (
                       <ul className='sub-menu'>
                         {link.items.map((item) => {
                           return (
