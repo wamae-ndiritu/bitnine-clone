@@ -95,6 +95,7 @@ const Header = () => {
                 return (
                   <li key={id}>
                     <p>{title}</p>
+                    <div className='hide-dummy'>Dummy</div>
                     {link.items && (
                       <ul className='sub-menu'>
                         {link.items.map((item) => {
