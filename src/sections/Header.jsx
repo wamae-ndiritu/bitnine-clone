@@ -5,16 +5,24 @@ const Header = () => {
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
 
-  const [showSearch, setShowSearch] = useState(false);
+  const [showSearch, setShowSearch] = useState([]);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [showSubMenu, setShowSubmenu] = useState(false);
+  const [showSubMenu, setShowSubmenu] = useState(
+    new Array(navLinks.length).fill(false)
+  );
+  const [subMenu, setSubMenu] = useState(false);
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
   };
 
-  const viewSubMenu = () => {
-    setShowSubmenu(!showSubMenu);
+  const viewSubMenu = (index) => {
+    setShowSubmenu((prev) => {
+      const newState = [...prev];
+      newState[index] = !newState[index];
+      return newState;
+    });
+    setSubMenu(!showSubMenu[index]);
   };
 
   const toggleMenu = () => {
@@ -38,6 +46,18 @@ const Header = () => {
       linksContainerRef.current.style.height = "0px";
     }
   }, [showMobileMenu]);
+
+  useEffect(() => {
+    const currentHeight = Number(
+      linksContainerRef.current.style.height.split("p")[0]
+    );
+    console.log(currentHeight);
+    if (subMenu) {
+      linksContainerRef.current.style.height = `${currentHeight + 200}px`;
+    } else {
+      linksContainerRef.current.style.height = `${currentHeight - 200}px`;
+    }
+  }, [subMenu]);
 
   return (
     <div className='header-cont'>
@@ -95,21 +115,51 @@ const Header = () => {
           </div>
           <div className='menu' id='menu' ref={linksContainerRef}>
             <ul ref={linksRef}>
-              {navLinks.map((link) => {
+              {navLinks.map((link, index) => {
                 const { id, title } = link;
                 return (
                   <li key={id}>
-                    <p
-                      onClick={viewSubMenu}
-                      className={`${link.items && "sub-menu-cont"}`}
-                    >
+                    <p className={`${link.items && "sub-menu-cont"}`}>
                       {title}
                       {link.items && (
-                        <i className='fa fa-angle-down' aria-hidden='true'></i>
+                        <i
+                          className='fa fa-angle-down arrow-icon'
+                          aria-hidden='true'
+                          onClick={() => viewSubMenu(index)}
+                        ></i>
                       )}
                     </p>
                     <div className='hide-dummy'>Dummy</div>
-                    {showSubMenu && link.items && (
+                    {link.items && (
+                      <ul className='sub-menu sub-menu-big-screen'>
+                        {link.items.map((item) => {
+                          return (
+                            <li key={item.id}>
+                              {item.title}
+                              {item.subItems && (
+                                <>
+                                  <i
+                                    className='fa fa-angle-right'
+                                    aria-hidden='true'
+                                  ></i>
+                                  <ul className='sub-menu-2'>
+                                    {item.subItems.map((subItem) => {
+                                      return (
+                                        <li key={subItem.id}>
+                                          {subItem.title}
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                    {/* For Small Devices */}
+                    {showSubMenu[index] && link.items && (
                       <ul className='sub-menu'>
                         {link.items.map((item) => {
                           return (

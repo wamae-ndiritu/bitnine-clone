@@ -203,6 +203,7 @@ body {
 
     .menu{
       display: flex;
+      align-items: flex-start;
       height: auto;
 
       ul{
@@ -228,6 +229,7 @@ body {
             margin: auto 0;
 
             i{
+              display: none;
               font-size: 20px;
               margin: auto 0;
               float: right;
@@ -236,6 +238,11 @@ body {
             &:hover{
               color: $color-orange;
             }
+
+            &:hover .sub-menu{
+              display: flex;
+            }
+
           }
 
           .hide-dummy{
@@ -246,6 +253,7 @@ body {
           }
 
           .sub-menu{
+            display: none;
             width: 180px;
             height: auto;
             flex-direction: column;
@@ -399,6 +407,7 @@ body {
           height: 25px;
 
           i{
+            display: block !important;
             font-size: 30px !important;
           }
 
@@ -425,6 +434,10 @@ body {
               font-size: 14px !important;
               margin: 5px 0 !important;
             }
+          }
+
+          .sub-menu-big-screen{
+            display: none !important;
           }
 
           .sub-menu-2{
