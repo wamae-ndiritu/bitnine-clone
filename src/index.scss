@@ -467,7 +467,8 @@ body {
 
   .wrapper{
     width: 60%;
-    padding: 80px 25px;
+    padding: 0 5px;
+    padding-top: 50px;
 
     .info-logo{
       width: 100%;
@@ -494,7 +495,7 @@ body {
     .btn-cont{
       display: flex;
       justify-content: center;
-      gap: 50px;
+      gap: 30px;
 
       button{
         background-color: #1414b3;
@@ -533,3 +534,39 @@ body {
   }
 }
 
+
+// AgensPackage Section
+.package-info{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e3ebeca9;
+  margin-top: -100px;
+
+  .package-wrapper{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+    img{
+      height: 80vh;
+    }
+  }
+}
+
+@media (max-width: 599px){
+  .package-info{
+    height: 60vh !important;
+
+    .package-wrapper{
+      width: 100% !important;
+      padding: 0 20px !important;
+
+      img{
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
