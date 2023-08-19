@@ -94,17 +94,27 @@ const Header = () => {
                 const { id, title } = link;
                 return (
                   <li key={id}>
-                    {title}
-                    {link.items?.map((item) => {
-                      return (
-                        <li key={item.id} className='sub-menu'>
-                          {item.title}
-                          {item.subItems?.map((subItem) => {
-                            return <li key={subItem.id}>{subItem.title}</li>;
-                          })}
-                        </li>
-                      );
-                    })}
+                    <p>{title}</p>
+                    {link.items && (
+                      <ul className='sub-menu'>
+                        {link.items.map((item) => {
+                          return (
+                            <li key={item.id}>
+                              {item.title}
+                              {item.subItems && (
+                                <ul className='sub-menu-2'>
+                                  {item.subItems.map((subItem) => {
+                                    return (
+                                      <li key={subItem.id}>{subItem.title}</li>
+                                    );
+                                  })}
+                                </ul>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
                   </li>
                 );
               })}
