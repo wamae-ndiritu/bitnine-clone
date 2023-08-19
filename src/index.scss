@@ -201,6 +201,7 @@ body {
 
     .menu{
       display: flex;
+      height: auto;
 
       ul{
         display: inline-flex;
@@ -220,23 +221,23 @@ body {
             color: $color-orange;
           }
 
+
+          button {
+            width: 100px;
+            margin: auto 0;
+            background-color: darkblue;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 5px 10px;
+          }
+
           &:hover{
             color: $color-orange;
           }
         }
-      }
-
-      button{
-        width: 100px;
-        margin: auto 0;
-        margin-left: 20px;
-        background-color: darkblue;
-        border-radius: 5px;
-        border: none;
-        color: #fff;
-        text-transform: uppercase;
-        font-size: 16px;
-        padding: 5px 10px;
       }
     }
   }
@@ -304,14 +305,12 @@ body {
     }
 
     .menu{
-      flex-direction: column;
       width: 100%;
       position: absolute;
       top: 70px;
-      height: 0;
-      opacity: 0;
+      height: auto;
+      overflow: hidden;
       background-color: #000000;
-      transition: opacity 0.5s ease-out;
       transition: height 0.5s ease-out;
 
       ul{
@@ -322,22 +321,16 @@ body {
           padding: 10px 10px !important;
           color: gray;
 
-
           &:first-child{
             border-top: 0.5px solid gray;
+          }
+
+          &:last-child{
+            margin-bottom: 10px !important;
           }
         }
       }
 
-      button{
-        margin-left: 10px !important;
-        margin-bottom: 10px !important;
-      }
-    }
-
-    .show-menu{
-      height: 355px;
-      opacity: 1;
     }
   }
 }

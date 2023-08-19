@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { navLinks } from "../data/Links";
 
 const Header = () => {
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
+
   const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -22,11 +26,11 @@ const Header = () => {
   }, [showSearch]);
 
   useEffect(() => {
-    const menu = document.getElementById("menu");
+    const linksHeight = linksRef.current.getBoundingClientRect().height;
     if (showMobileMenu) {
-      menu.classList.add("show-menu");
+      linksContainerRef.current.style.height = `${linksHeight}px`;
     } else {
-      menu.classList.remove("show-menu");
+      linksContainerRef.current.style.height = "0px";
     }
   }, [showMobileMenu]);
 
@@ -84,17 +88,13 @@ const Header = () => {
               <i className='fa fa-bars' aria-hidden='true'></i>
             </span>
           </div>
-          <div className='menu' id='menu'>
-            <ul>
-              <li>Products</li>
-              <li>Use Cases</li>
-              <li>Services</li>
-              <li>Resources</li>
-              <li>Blog</li>
-              <li>Company</li>
-              <li>Ir</li>
+          <div className='menu' id='menu' ref={linksContainerRef}>
+            <ul ref={linksRef}>
+              {navLinks.map((link) => {
+                const { id, title } = link;
+                return <li key={id}>{title}</li>;
+              })}
             </ul>
-            <button>Try Free</button>
           </div>
         </div>
       </div>
