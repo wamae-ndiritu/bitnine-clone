@@ -172,6 +172,7 @@ body {
       align-items: center !important;
       justify-content: space-between;
       padding: 20px 50px;
+      background-color: red;
 
       .logo-cont{
         display: block;
@@ -213,12 +214,22 @@ body {
           text-transform: uppercase;
           font-size: 16px;
           letter-spacing: 1px;
+          margin: auto 0;
           font-weight: 400;
           transition: $transition-main;
+          position: relative;
           cursor: pointer;
 
-          &:first-child{
-            color: $color-orange;
+          // &:first-child{
+          //   color: $color-orange;
+          // }
+
+          .sub-menu{
+            display: inline-block;
+            background-color: #000000;
+            position: absolute;
+            margin-top: 20px;
+            text-transform: capitalize;
           }
 
 
@@ -308,10 +319,9 @@ body {
       width: 100%;
       position: absolute;
       top: 70px;
-      height: auto;
       overflow: hidden;
       background-color: #000000;
-      transition: height 0.5s ease-out;
+      transition: height 0.3s ease-out;
 
       ul{
         display: inline-block !important;

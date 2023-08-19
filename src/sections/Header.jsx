@@ -92,7 +92,21 @@ const Header = () => {
             <ul ref={linksRef}>
               {navLinks.map((link) => {
                 const { id, title } = link;
-                return <li key={id}>{title}</li>;
+                return (
+                  <li key={id}>
+                    {title}
+                    {link.items?.map((item) => {
+                      return (
+                        <li key={item.id} className='sub-menu'>
+                          {item.title}
+                          {item.subItems?.map((subItem) => {
+                            return <li key={subItem.id}>{subItem.title}</li>;
+                          })}
+                        </li>
+                      );
+                    })}
+                  </li>
+                );
               })}
             </ul>
           </div>
