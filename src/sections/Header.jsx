@@ -46,18 +46,7 @@ const Header = () => {
     } else {
       linksContainerRef.current.style.height = "0px";
     }
-  }, [showMobileMenu]);
-
-  useEffect(() => {
-    const currentHeight = Number(
-      linksContainerRef.current.style.height.split("p")[0]
-    );
-    if (subMenu) {
-      linksContainerRef.current.style.height = `${currentHeight + 200}px`;
-    } else {
-      linksContainerRef.current.style.height = `${currentHeight - 200}px`;
-    }
-  }, [subMenu]);
+  }, [showMobileMenu, subMenu]);
 
   useEffect(() => {
     window.addEventListener("scroll", function () {
