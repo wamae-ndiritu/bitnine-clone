@@ -1,5 +1,8 @@
 $color-orange: #e4c41c;
 $color-gray: #746c6c;
+$dark-gray: #1d1c1c;
+$color-blue: #1414b3;
+$pale-blue: #08a6ea;
 $bg-color: #e3ebeca9;
 $transition-main: 0.3s ease-out;
 
@@ -193,7 +196,7 @@ body {
             width: 170px;
             background-color: #ffffffea;
             color: gray;
-            border: 2px solid darkblue;
+            border: 2px solid $color-blue;
             border-radius: 7px;
             font-size: 16px;
             padding: 10px;
@@ -314,7 +317,7 @@ body {
           button {
             width: 100px;
             margin: auto 0;
-            background-color: darkblue;
+            background-color: $color-blue;
             border-radius: 5px;
             border: none;
             color: #fff;
@@ -505,7 +508,7 @@ body {
       gap: 30px;
 
       button{
-        background-color: #1414b3;
+        background-color: $color-blue;
         color: #fff;
         padding: 10px 20px;
         border: none;
@@ -734,4 +737,131 @@ body {
       margin-bottom: 10px;
     }
   }
+}
+
+// AgensPackageInfo Section
+
+.package-info-cont{
+  width: 100%;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  h1 {
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: $color-gray;
+    padding: 0;
+    font-size: 16px;
+    max-width: 800px;
+    margin-top: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+    }
+  
+  .package-info-wrapper{
+    width: 80%;
+    display: flex;
+    gap: 20px;
+
+    h5 {
+        text-align: center;
+        color: $dark-gray;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+
+    .package-left{
+      flex: 1;
+
+        h6 {
+          font-weight: 300;
+          font-size: 22px;
+          margin: 10px 0;
+          color: $color-gray;
+    
+          span {
+            color: $pale-blue;
+            font-weight: 600;
+          }
+        }
+
+      .load-img{
+        width: 100%;
+
+        img{
+          width: 100%;
+          height: 400px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .package-right{
+      flex: 1;
+
+      .package-card{
+        width: 100%;
+        height: 90px;
+        position: relative;
+        margin: 5px 0;
+
+        .card-front,
+          .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+            transition: transform 0.8s;
+            background-color: #fff;
+            border: 2px solid $pale-blue;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+          }
+
+          .card-back {
+            transform: rotateY(180deg);
+            border: none;
+          }
+
+        ul{
+          width: 100%;
+          height: 90px;
+          background-color: $pale-blue;
+          color: #fff;
+          border-radius: 10px;
+          border: 2px solid $pale-blue;
+          list-style-type: circle;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        &:hover .card-front{
+          transform: rotateY(180deg);
+        }
+
+        &:hover .card-back{
+          transform: rotateY(0deg);
+        }
+      }
+    }
+  }
+
+
 }
