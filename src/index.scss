@@ -30,6 +30,52 @@ body {
   width: 70% !important;
 }
 
+// Socials Component
+
+ .icons {
+   display: flex;
+
+   span {
+     font-size: 18px;
+     display: inline-block;
+     padding: 5px 10px;
+     text-align: center;
+     color: #fff;
+     background: transparent;
+     /* default color */
+     /* "to top" - affects initial color */
+     background: linear-gradient(to top, transparent 50%, darkblue 50%) bottom;
+     background-size: 100% 200%;
+     /* Adjust the background size for top-to-bottom effect */
+     transition: background-position 0.3s ease-out;
+     cursor: pointer;
+
+     &:first-child {
+       /* Apply different background to odd child spans */
+       color: $color-orange;
+       background: linear-gradient(to top, transparent 50%, darkgray 50%) bottom;
+       background-size: 100% 200%;
+     }
+
+     &:last-child {
+       /* Apply different background to odd child spans */
+       background: linear-gradient(to top, transparent 50%, palegreen 50%) bottom;
+       background-size: 100% 200%;
+     }
+
+     &:nth-child(2) {
+       /* Apply different background to even child spans */
+       background: linear-gradient(to top, transparent 50%, red 50%) bottom;
+       background-size: 100% 200%;
+     }
+
+     &:hover {
+       background-position: top;
+     }
+
+   }
+ }
+
 
 // Header Section
 
@@ -134,49 +180,6 @@ body {
               color: gray;
             }
           }
-        }
-
-        .icons{
-          display: flex;
-
-          span {
-           font-size: 18px;
-           display: inline-block;
-           padding: 5px 10px;
-           text-align: center;
-           color: #fff;
-           background: transparent; /* default color */
-           /* "to top" - affects initial color */
-           background: linear-gradient(to top, transparent 50%, darkblue 50%) bottom;
-           background-size: 100% 200%;
-           /* Adjust the background size for top-to-bottom effect */
-           transition: background-position 0.3s ease-out;
-           cursor: pointer;
-
-          &:first-child {
-              /* Apply different background to odd child spans */
-              color: $color-orange;
-              background: linear-gradient(to top, transparent 50%, darkgray 50%) bottom;
-              background-size: 100% 200%;
-            }
-
-            &:last-child {
-                /* Apply different background to odd child spans */
-                background: linear-gradient(to top, transparent 50%, palegreen 50%) bottom;
-                background-size: 100% 200%;
-              }
-            
-              &:nth-child(2) {
-                /* Apply different background to even child spans */
-                background: linear-gradient(to top, transparent 50%, red 50%) bottom;
-                background-size: 100% 200%;
-              }
-
-           &:hover{
-             background-position: top;
-           }
-            
-          } 
         }
       }
     }

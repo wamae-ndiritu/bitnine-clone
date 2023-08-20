@@ -1,4 +1,5 @@
 import React from "react";
+import Socials from "./Socials";
 
 const Footer = () => {
   return (
@@ -38,7 +39,10 @@ const Footer = () => {
       </div>
       <div className='copyright-cont'>
         <p>&copy; 2023 by Bitnine Global Inc. All Rights Reserved.</p>
-        <div className='footer-icons'></div>
+        <div className='footer-icons'>
+          <Socials />
+          <h6>Contacts</h6>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { navLinks } from "../data/Links";
+import Socials from "./Socials";
 
 const Header = () => {
   const linksContainerRef = useRef(null);
@@ -82,23 +83,7 @@ const Header = () => {
               </div>
               <h6>Contact</h6>
             </div>
-            <div className='icons'>
-              <span>
-                <i className='fa fa-github' aria-hidden='true'></i>
-              </span>
-              <span>
-                <i className='fa fa-youtube-play' aria-hidden='true'></i>
-              </span>
-              <span>
-                <i className='fa fa-linkedin' aria-hidden='true'></i>
-              </span>
-              <span>
-                <i className='fa fa-facebook' aria-hidden='true'></i>
-              </span>
-              <span>
-                <i className='fa fa-medium' aria-hidden='true'></i>
-              </span>
-            </div>
+            <Socials />
           </div>
         </div>
         <div className='navbar-row'>
