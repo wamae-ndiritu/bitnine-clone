@@ -40,7 +40,7 @@ const Footer = () => {
       <div className='copyright-cont'>
         <p>&copy; 2023 by Bitnine Global Inc. All Rights Reserved.</p>
         <div className='footer-icons'>
-          <Socials />
+          <Socials size='12' />
           <h6>Contacts</h6>
         </div>
       </div>

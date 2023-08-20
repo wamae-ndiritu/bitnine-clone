@@ -982,9 +982,29 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     p{
       color: $color-gray;
+    }
+
+    .footer-icons{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      h6{
+        text-transform: uppercase;
+        color: $color-gray;
+        font-size: 14px;
+        cursor: pointer;
+        margin: auto 0;
+        transition: $transition-main;
+
+        &:hover{
+          color: $pale-blue;
+        }
+      }
     }
   }
 }
