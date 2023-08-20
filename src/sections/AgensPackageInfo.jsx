@@ -18,6 +18,7 @@ const AgensPackageInfo = () => {
           <div className='load-img'>
             <img src='/assets/bitnine-img-3.png' alt='...' />
           </div>
+          <h6 className='h6 text-center mt-5'>Replication</h6>
         </div>
         <div className='package-right'>
           <h5 className='h5'>Agens Enterprise Manager</h5>
