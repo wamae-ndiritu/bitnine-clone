@@ -878,3 +878,49 @@ body {
 
 
 }
+
+@media (max-width: 599px){
+  .package-info-cont{
+    padding: 50px 0 !important;
+  h1 {
+      font-weight: bold;
+      font-size: 24px !important;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    p {
+      font-size: 14px !important;
+      max-width: 350px !important;
+      letter-spacing: 0.5px !important;
+    }
+    .package-info-wrapper{
+      width: 100% !important;
+      flex-wrap: wrap;
+
+      .package-left{
+        flex: 100% !important;
+        padding: 0 20px;
+
+        h6{
+          font-size: 18px !important;
+          text-align: center !important;
+          margin-top: 10px !important;
+        }
+
+        .load-img{
+          margin-bottom: -50px !important;
+        }
+      }
+
+      .package-right{
+        flex: 100% !important;
+        padding: 0 20px;
+
+        .package-card{
+          margin: 10px 0 !important;
+        }
+      }
+    }
+  }
+}
