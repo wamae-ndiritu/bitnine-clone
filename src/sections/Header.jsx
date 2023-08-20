@@ -6,7 +6,7 @@ const Header = () => {
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
 
-  const [showSearch, setShowSearch] = useState([]);
+  const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showSubMenu, setShowSubmenu] = useState(
     new Array(navLinks.length).fill(false)
@@ -52,7 +52,6 @@ const Header = () => {
     const currentHeight = Number(
       linksContainerRef.current.style.height.split("p")[0]
     );
-    console.log(currentHeight);
     if (subMenu) {
       linksContainerRef.current.style.height = `${currentHeight + 200}px`;
     } else {
@@ -60,15 +59,27 @@ const Header = () => {
     }
   }, [subMenu]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+      const activeHeader = document.querySelector("#top-header");
+      activeHeader?.classList.toggle("hide-top", window.scrollY === 0);
+    });
+
+    return () => {
+      // Remove the scroll event listener when the component unmounts
+      window.removeEventListener("scroll", function () {});
+    };
+  }, []);
+
   return (
-    <div className='header-cont'>
-      <div className='top-header'>
+    <div className='header-cont active-header'>
+      <div className='top-header' id='top-header'>
         <h6>
           <span>AG Cloud Express :</span>
           Experience graph database in a cloud environment for FREE!
         </h6>
       </div>
-      <div className='main-header'>
+      <div className='main-header' id='header'>
         <div className='social-row'>
           <div className='right'>
             <div className='info'>
@@ -104,7 +115,11 @@ const Header = () => {
                 const { id, title } = link;
                 return (
                   <li key={id}>
-                    <p className={`${link.items && "sub-menu-cont"}`}>
+                    <p
+                      className={`${link.items && "sub-menu-cont"} ${
+                        id === 0 && "active-link"
+                      }`}
+                    >
                       {title}
                       {link.items && (
                         <i
