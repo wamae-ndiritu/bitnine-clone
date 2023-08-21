@@ -10,7 +10,7 @@ const Features = () => {
         provided
       </p>
       <div className='feature-img'>
-        <img src='/assets/bitnine-img-2.png' about='...' />
+        <img src='/assets/bitnine-img-2.png' alt='...' />
       </div>
     </div>
   );
