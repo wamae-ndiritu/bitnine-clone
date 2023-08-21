@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const { db } = require("../configDB");
 const { createUserSchema, loginSchema } = require("../validation");
 const { generateToken } = require("../token");
+const authenticate = require("./auth");
 
 const router = express.Router();
 
@@ -73,5 +74,8 @@ router.post("/login", (req, res) => {
     }
   });
 });
+
+// Authorization
+router.post("/auth", authenticate);
 
 module.exports = router;
