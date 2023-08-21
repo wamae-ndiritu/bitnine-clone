@@ -11,6 +11,19 @@ const Header = () => {
   const [showSubMenu, setShowSubmenu] = useState(
     new Array(navLinks.length).fill(false)
   );
+
+  let obj = {};
+  navLinks.map((nav) => {
+    if (nav.items) {
+      nav.items.map((item) => {
+        if (item.subItems) {
+          obj[item.title] = false;
+        }
+      });
+    }
+  });
+
+  const [showNestedMenu, setShowNestedMenu] = useState(obj);
   const [subMenu, setSubMenu] = useState(false);
 
   const toggleSearch = () => {
@@ -28,6 +41,17 @@ const Header = () => {
 
   const toggleMenu = () => {
     setShowMobileMenu(!showMobileMenu);
+  };
+
+  const toggleNestedMenu = (title) => {
+    setShowNestedMenu((prev) => {
+      const newState = {
+        ...prev,
+        [title]: !prev[title],
+      };
+      return newState;
+    });
+    setSubMenu(!showNestedMenu[title]);
   };
 
   useEffect(() => {
@@ -162,10 +186,11 @@ const Header = () => {
                                   <i
                                     className='fa fa-angle-right'
                                     aria-hidden='true'
+                                    onClick={() => toggleNestedMenu(item.title)}
                                   ></i>
                                 )}
                               </p>
-                              {item.subItems && (
+                              {showNestedMenu[item.title] && item.subItems && (
                                 <ul className='sub-menu-2'>
                                   {item.subItems.map((subItem) => {
                                     return (
