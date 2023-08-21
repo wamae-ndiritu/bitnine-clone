@@ -17,10 +17,13 @@ const Header = () => {
     if (nav.items) {
       nav.items.map((item) => {
         if (item.subItems) {
-          obj[item.title] = false;
+          return (obj[item.title] = false);
         }
+        return null;
       });
+      return null;
     }
+    return null;
   });
 
   const [showNestedMenu, setShowNestedMenu] = useState(obj);
