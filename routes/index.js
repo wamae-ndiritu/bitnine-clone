@@ -77,6 +77,6 @@ router.post("/login", (req, res) => {
 });
 
 // Authorization
-router.post("/auth", authenticate);
+router.get("/auth", authenticate);
 
 module.exports = router;

@@ -15,7 +15,6 @@ const authenticate = (req, res) => {
 
       res.status(200).json(true);
     } catch (error) {
-      console.error(error);
       res.status(401).json({ message: "Not authorized, token failed" });
     }
   }
