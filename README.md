@@ -36,4 +36,3 @@ Need to implement a login/signup page that will allow users to view some content
 - `jsonwebtoken`: Provides token based authentication
 - `joi`: Used for verify form object data
 - `cors`: To allows cross-site origin resource sharing
--
