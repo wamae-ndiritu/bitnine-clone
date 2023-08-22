@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./user.scss";
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
+
+  const togglePass = () => {
+    setShowPass(!showPass);
+  };
+
   return (
     <form>
       <h4>Sign Up</h4>
@@ -15,8 +22,33 @@ const Register = () => {
       </div>
       <div className='mb-3'>
         <label htmlFor='pass'>Password</label>
-        <input type='password' className='form-control' id='pass' />
+        <input
+          type={`${showPass ? "text" : "password"}`}
+          className='form-control'
+          id='pass'
+        />
       </div>
+      <div className='mb-3'>
+        <label htmlFor='pass-2'>Confirm Password</label>
+        <input
+          type={`${showPass ? "text" : "password"}`}
+          className='form-control'
+          id='pass-2'
+        />
+      </div>
+      <span onClick={togglePass}>
+        <i
+          className={`fa ${showPass ? "fa-eye-slash" : "fa-eye"}`}
+          aria-hidden='true'
+        ></i>
+        Check Password
+      </span>
+      <div className='mb-3'>
+        <button className='btn-submit'>Sign Up</button>
+      </div>
+      <p>
+        Already have an account? <Link to='/login'>Login</Link>
+      </p>
     </form>
   );
 };

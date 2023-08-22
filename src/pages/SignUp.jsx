@@ -4,10 +4,12 @@ import Register from "../user/Register";
 const SignUp = () => {
   return (
     <div className='user'>
-      <div className='user-wrapper'>
+      <div className='user-left'>
         <h6>Bitnine</h6>
       </div>
-      <Register />
+      <div className='user-right'>
+        <Register />
+      </div>
     </div>
   );
 };
