@@ -32,11 +32,25 @@ function AuthProvider({ children }) {
     }
   };
 
+  const loginUser = async (user) => {
+    try {
+      dispatch({ type: "USER_LOGIN_REQUEST" });
+
+      const { data } = await axios.post(`${API_ENDPOINT}/users/login`, user);
+      console.log(data);
+      dispatch({ type: "USER_LOGIN_SUCCESS", payload: data });
+    } catch (err) {
+      let error = err.response ? err.response.data.message : err.message;
+      dispatch({ type: "USER_LOGIN_FAIL", payload: error });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
         ...state,
         registerUser,
+        loginUser,
       }}
     >
       {children}
