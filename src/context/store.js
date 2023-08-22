@@ -58,10 +58,12 @@ function AuthProvider({ children }) {
           Authorization: `Bearer ${token}`,
         },
       };
-      const { data } = await axios.get(`${API_ENDPOINT}/users/auth`);
+      const { data } = await axios.get(`${API_ENDPOINT}/users/auth`, config);
+      if (!data) {
+        logout();
+      }
     } catch (err) {
       let error = err.response ? err.response.data.message : err.message;
-      console.log(error);
       if (
         error === "Not authorized, token failed" ||
         error === "Not authorized, no token"
