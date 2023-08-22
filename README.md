@@ -17,6 +17,10 @@ https://bitnine-clone-react.netlify.app/
 
 > Please note that you will have to create a simple account and then login to access the page. The process is very simple and takes less than a minute.
 
+### Authentication Backend Repository
+
+https://github.com/wamae-ndiritu/bitnine-clone/tree/auth
+
 ### Aim of the project
 
 The project aims at demontrating frontend skills by replicating an existing frontend design. Since the application also requires to handle some authentication so that the user can access the content, it also plays a major role at demontrating backend and database skills.
