@@ -6,7 +6,8 @@ import { useGlobalContext } from "../context/store";
 const Login = () => {
   const navigate = useNavigate();
 
-  const { loading, error, userInfo, loginUser } = useGlobalContext();
+  const { loading, error, userInfo, loginUser, authenticate } =
+    useGlobalContext();
 
   const [showPass, setShowPass] = useState(false);
   const [details, setDetails] = useState({
@@ -36,6 +37,7 @@ const Login = () => {
   useEffect(() => {
     if (userInfo) {
       if (userInfo.token) {
+        authenticate();
         navigate("/");
       }
     }

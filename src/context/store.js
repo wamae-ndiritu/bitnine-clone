@@ -49,6 +49,28 @@ function AuthProvider({ children }) {
     }
   };
 
+  const authenticate = async () => {
+    try {
+      const token = state.userInfo.token;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axios.get(`${API_ENDPOINT}/users/auth`);
+    } catch (err) {
+      let error = err.response ? err.response.data.message : err.message;
+      console.log(error);
+      if (
+        error === "Not authorized, token failed" ||
+        error === "Not authorized, no token"
+      ) {
+        logout();
+      }
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("userInfo");
   };
@@ -60,6 +82,7 @@ function AuthProvider({ children }) {
         registerUser,
         loginUser,
         logout,
+        authenticate,
       }}
     >
       {children}
