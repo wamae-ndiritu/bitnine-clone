@@ -4,7 +4,10 @@ import Login from "../user/Login";
 const SignIn = () => {
   return (
     <div className='user'>
-      <Login />
+      <div className='user-left'></div>
+      <div className='user-right'>
+        <Login />
+      </div>
     </div>
   );
 };
