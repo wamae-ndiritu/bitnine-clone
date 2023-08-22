@@ -13,7 +13,7 @@ Design a webpage similar to the Bitnine's official website https://bitnine.net/
 
 ### Live Demo
 
-`https://bitnine-clone-react.netlify.app/`
+https://bitnine-clone-react.netlify.app/
 
 > Please note that you will have to create a simple account and then login to access the page. The process is very simple and takes less than a minute.
 
