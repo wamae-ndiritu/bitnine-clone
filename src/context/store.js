@@ -5,10 +5,14 @@ import { API_ENDPOINT } from "../Url";
 
 const AuthContext = createContext();
 
+const initialUserInfo = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : {};
+
 const initialState = {
   loading: false,
   error: false,
-  userInfo: {},
+  userInfo: initialUserInfo,
 };
 
 function AuthProvider({ children }) {
@@ -37,12 +41,16 @@ function AuthProvider({ children }) {
       dispatch({ type: "USER_LOGIN_REQUEST" });
 
       const { data } = await axios.post(`${API_ENDPOINT}/users/login`, user);
-      console.log(data);
       dispatch({ type: "USER_LOGIN_SUCCESS", payload: data });
+      localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (err) {
       let error = err.response ? err.response.data.message : err.message;
       dispatch({ type: "USER_LOGIN_FAIL", payload: error });
     }
+  };
+
+  const logout = () => {
+    localStorage.removeItem("userInfo");
   };
 
   return (
@@ -51,6 +59,7 @@ function AuthProvider({ children }) {
         ...state,
         registerUser,
         loginUser,
+        logout,
       }}
     >
       {children}
