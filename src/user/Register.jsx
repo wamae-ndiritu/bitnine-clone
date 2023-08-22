@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./user.scss";
 import { useGlobalContext } from "../context/store";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const { loading, error, userInfo, registerUser } = useGlobalContext();
 
   const [showPass, setShowPass] = useState(false);
@@ -38,6 +40,14 @@ const Register = () => {
       registerUser(details);
     }
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      if (userInfo.register) {
+        navigate("/login");
+      }
+    }
+  }, [userInfo, navigate]);
 
   return (
     <form onSubmit={handleSubmit}>

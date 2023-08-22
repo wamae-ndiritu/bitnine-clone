@@ -19,7 +19,6 @@ function AuthProvider({ children }) {
       dispatch({ type: "USER_REGISTER_REQUEST" });
 
       const { data } = await axios.post(`${API_ENDPOINT}/users/register`, user);
-      console.log(data);
       dispatch({ type: "USER_REGISTER_SUCCESS", payload: data });
     } catch (err) {
       let error = err.response ? err.response.data.message : err.message;
